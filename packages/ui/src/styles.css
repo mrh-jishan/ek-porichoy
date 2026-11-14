@@ -1,0 +1,70 @@
+/* Ek Porichoy design tokens — derived from the national flag (bottle green #006A4E, red #F42A41)
+   and the visual conventions of Bangladesh government portals: white surfaces, green bands, restrained red accents. */
+@theme {
+  --color-brand-50: #e9f6f0;
+  --color-brand-100: #c8e9d9;
+  --color-brand-200: #96d3b6;
+  --color-brand-300: #5fb892;
+  --color-brand-400: #2e9c72;
+  --color-brand-500: #00845f;
+  --color-brand-600: #006a4e;
+  --color-brand-700: #00563f;
+  --color-brand-800: #004332;
+  --color-brand-900: #003326;
+  --color-brand-950: #001f17;
+
+  --color-accent-50: #fff0f2;
+  --color-accent-100: #ffd6db;
+  --color-accent-400: #f75568;
+  --color-accent-500: #f42a41;
+  --color-accent-600: #d81e34;
+  --color-accent-700: #b0162a;
+
+  --color-gold-100: #fbf1d3;
+  --color-gold-500: #d4a017;
+
+  --color-surface: #f6f8f7;
+  --color-ink: #0f1f19;
+  --color-muted: #5b6b64;
+  --color-line: #dde5e1;
+
+  --font-sans: var(--font-bn), var(--font-en), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 1rem;
+  --shadow-card: 0 1px 2px rgb(0 51 38 / 0.04), 0 8px 24px -12px rgb(0 51 38 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(0 51 38 / 0.06), 0 18px 40px -16px rgb(0 51 38 / 0.25);
+
+  --animate-shimmer: shimmer 1.6s linear infinite;
+  @keyframes shimmer { from { background-position: -200% 0; } to { background-position: 200% 0; } }
+}
+
+@layer base {
+  html { font-size: calc(16px * var(--text-scale, 1)); -webkit-font-smoothing: antialiased; }
+  html[data-text="lg"] { --text-scale: 1.125; }
+  html[data-text="xl"] { --text-scale: 1.25; }
+  body { @apply bg-surface text-ink; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-brand-600; }
+  /* High-contrast mode for low-vision users (WCAG AAA-ish) */
+  html[data-contrast="high"] {
+    --color-muted: #1d2a25;
+    --color-line: #5b6b64;
+    --color-surface: #ffffff;
+  }
+  html[data-contrast="high"] body { filter: contrast(1.08); }
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@utility bg-gov-pattern {
+  background-color: var(--color-brand-700);
+  background-image:
+    radial-gradient(circle at 85% 30%, rgb(244 42 65 / 0.55) 0, rgb(244 42 65 / 0) 22%),
+    radial-gradient(circle at 10% 110%, rgb(0 132 95 / 0.9) 0, rgb(0 132 95 / 0) 45%),
+    linear-gradient(135deg, var(--color-brand-800), var(--color-brand-600));
+}
+
+@utility bg-dots {
+  background-image: radial-gradient(rgb(255 255 255 / 0.12) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
