@@ -7,3 +7,4 @@ dist
 *.tsbuildinfo
 .DS_Store
 apps/web/AGENTS.md
+.vercel

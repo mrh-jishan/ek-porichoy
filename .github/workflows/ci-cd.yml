@@ -67,9 +67,8 @@ jobs:
     environment:
       name: ${{ github.event_name == 'pull_request' && 'preview' || 'production' }}
       url: ${{ steps.deploy.outputs.url }}
-    defaults:
-      run:
-        working-directory: apps/web
+    # The Vercel project's Root Directory is apps/web; the CLI runs from the repo root so the
+    # whole pnpm workspace (root node_modules, packages/*) is inside the deploy's file scope.
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -78,7 +77,6 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-        working-directory: .
       - name: Pull Vercel environment
         run: npx vercel@latest pull --yes --environment=${{ github.event_name == 'pull_request' && 'preview' || 'production' }} --token=${{ secrets.VERCEL_TOKEN }}
 
