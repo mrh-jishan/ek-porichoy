@@ -1,3 +1,4 @@
+import path from "node:path";
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
@@ -16,6 +17,8 @@ const config: NextConfig = {
   transpilePackages: ["@ep/ui", "@ep/domain", "@ep/i18n", "@ep/core", "@ep/db", "@ep/auth"],
   serverExternalPackages: ["postgres"],
   output: "standalone",
+  // Trace files from the monorepo root so workspace packages are bundled into serverless functions.
+  outputFileTracingRoot: path.join(import.meta.dirname, "../.."),
   poweredByHeader: false,
   typedRoutes: false,
   async headers() {

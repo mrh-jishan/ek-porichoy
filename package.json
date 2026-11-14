@@ -9,7 +9,8 @@
     "test": "turbo run test",
     "db:push": "pnpm --filter @ep/db db:push",
     "db:seed": "pnpm --filter @ep/seed seed",
-    "db:reset": "pnpm --filter @ep/seed reset && pnpm --filter @ep/db db:push && pnpm --filter @ep/seed seed"
+    "db:reset": "pnpm --filter @ep/seed reset && pnpm --filter @ep/db db:migrate && pnpm --filter @ep/seed seed",
+    "db:migrate": "pnpm --filter @ep/db db:migrate"
   },
   "devDependencies": {
     "turbo": "^2.11.11",

@@ -3,11 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "exports": { ".": "./src/index.ts", "./schema": "./src/schema/index.ts" },
+  "exports": {
+    ".": "./src/index.ts",
+    "./schema": "./src/schema/index.ts"
+  },
   "scripts": {
     "typecheck": "tsc --noEmit",
     "db:push": "drizzle-kit push --force",
-    "db:generate": "drizzle-kit generate"
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate"
   },
   "dependencies": {
     "@ep/domain": "workspace:*",
@@ -17,7 +21,7 @@
   "devDependencies": {
     "@ep/tsconfig": "workspace:*",
     "@types/node": "^24",
-        "dotenv": "^17",
+    "dotenv": "^17",
     "drizzle-kit": "^0.31.11",
     "typescript": "5.9.3"
   }

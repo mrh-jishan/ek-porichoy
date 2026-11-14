@@ -7,12 +7,19 @@ import { db, people, schema, user } from "@ep/db";
 import { ac, roles } from "./permissions";
 import { queueOtpSms } from "./sms";
 
+/** Production URL from env; on Vercel previews fall back to the deployment URL. */
+const vercelUrls = [process.env.VERCEL_URL, process.env.VERCEL_BRANCH_URL, process.env.VERCEL_PROJECT_PRODUCTION_URL]
+  .filter(Boolean)
+  .map((h) => `https://${h}`);
+const baseURL = process.env.BETTER_AUTH_URL ?? vercelUrls[0];
+
 export const SESSION_TTL = { staff: 60 * 60 * 8, citizen: 60 * 60 * 24 * 7 };
 
 export const auth = betterAuth({
   appName: "Ek Porichoy",
   secret: process.env.BETTER_AUTH_SECRET,
-  baseURL: process.env.BETTER_AUTH_URL,
+  baseURL,
+  trustedOrigins: [...vercelUrls, ...(process.env.BETTER_AUTH_URL ? [process.env.BETTER_AUTH_URL] : [])],
   database: drizzleAdapter(db, {
     provider: "pg",
     schema: { user: schema.user, session: schema.session, account: schema.account, verification: schema.verification },

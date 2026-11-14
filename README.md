@@ -48,7 +48,20 @@ Citizens sign in with NID + date of birth. The OTP is shown on screen in develop
 4. **admin@**: Disbursements, then approve and dispatch. Under Integrity, confirm a flag. Under Audit trail, verify the hash chain.
 5. **bkash@**: open the dispatched batch, mark a payment failed, then confirm settlement.
 
+## CI/CD and deployment
+GitHub Actions (`.github/workflows/ci-cd.yml`) deploys to Vercel through the Vercel CLI. Vercel's own Git auto-deploy is disabled, so every deploy goes through CI.
+
+| Trigger | What happens |
+|---|---|
+| Pull request | Typecheck, unit tests, migrate + seed a Postgres service container, production build, then a **preview** deploy with the URL posted on the PR |
+| Push to `main` | The same checks, then **migrations on Neon**, then a **production** deploy |
+| Manual run (`seed: true`) | Seeds the production database with demo data (skipped if it already has data) |
+
+Required repository secrets: `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`.
+Vercel environment: `DATABASE_URL` / `DATABASE_URL_UNPOOLED` (Neon), `DB_PGBOUNCER=true`, `BETTER_AUTH_SECRET`,
+`BETTER_AUTH_URL`, `PAYER_WEBHOOK_SECRET`, `DEMO_MODE=true`.
+
 ## Scripts
-`pnpm typecheck` · `pnpm test` (domain unit tests + i18n key parity) · `pnpm build` · `pnpm db:reset`
+`pnpm typecheck` · `pnpm test` (domain unit tests + i18n key parity) · `pnpm build` · `pnpm db:migrate` · `pnpm db:reset`
 
 See **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** for design decisions, IAM, and the plan for scaling to 200 M people.
