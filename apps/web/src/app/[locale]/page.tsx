@@ -9,7 +9,7 @@ import { SiteHeader } from "@/components/site-header";
 import { Link } from "@/i18n/navigation";
 import { HeroVisual } from "./hero-visual";
 
-export const revalidate = 300; // public transparency stats: ISR every 5 min — never hits the DB per visitor
+export const revalidate = 300; // public transparency stats: ISR every 5 min - never hits the DB per visitor
 
 const PROBLEMS = ["programmes", "fakeCards", "survey", "nid", "excluded", "elite"] as const;
 const STEPS = [

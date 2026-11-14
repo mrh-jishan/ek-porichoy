@@ -94,7 +94,7 @@ export async function enrollmentQueue(actor: Actor, status: EnrollmentStatus = "
 /**
  * Exclusion-error finder: poor citizens who qualify but receive nothing
  * (the World Bank's "62% of the poor get no benefit"). Ranked by poverty score so
- * officers reach the poorest first — no new survey required.
+ * officers reach the poorest first - no new survey required.
  * Production: precomputed nightly by a worker into a materialised table.
  */
 export async function excludedEligible(actor: Actor, limit = 25, scan = 600) {
@@ -126,7 +126,7 @@ export async function excludedEligible(actor: Actor, limit = 25, scan = 600) {
     .slice(0, limit);
 }
 
-/** Citizen self-service application — closes the exclusion gap without a field survey. */
+/** Citizen self-service application - closes the exclusion gap without a field survey. */
 export async function requestEnrollment(actor: Actor, programId: string) {
   authorize(actor, "profile", "apply");
   if (!actor.nid) throw new AppError("FORBIDDEN", "nid_required");

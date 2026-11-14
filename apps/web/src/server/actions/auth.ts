@@ -17,7 +17,7 @@ const maskPhone = (p: string) => `${p.slice(0, 7)}••••${p.slice(-2)}`;
 const errorKey = (e: unknown, fallback: string) =>
   e && typeof e === "object" && "status" in e && (e as { status: unknown }).status === "TOO_MANY_REQUESTS" ? "rate_limited" : fallback;
 
-/** Citizen step 1 — NID + DOB must match the EC record; the OTP goes only to the EC-registered phone. */
+/** Citizen step 1 - NID + DOB must match the EC record; the OTP goes only to the EC-registered phone. */
 export async function requestCitizenOtp(_: unknown, form: FormData): Promise<ActionResult<{ phone: string; demoCode: string | null }>> {
   const parsed = nidDob.safeParse(Object.fromEntries(form));
   if (!parsed.success) return { ok: false, error: parsed.error.issues[0]?.message === "invalid_nid" ? "invalid_nid" : "INVALID" };
@@ -31,7 +31,7 @@ export async function requestCitizenOtp(_: unknown, form: FormData): Promise<Act
   return { ok: true, data: { phone: maskPhone(phone), demoCode: await devPeekOtp(phone) } };
 }
 
-/** Citizen step 2 — verify OTP; first-time verification creates the identity bound to the NID. */
+/** Citizen step 2 - verify OTP; first-time verification creates the identity bound to the NID. */
 export async function verifyCitizenOtp(_: unknown, form: FormData): Promise<ActionResult> {
   const parsed = nidDob.extend({ code: z.string().regex(/^\d{6}$/) }).safeParse(Object.fromEntries(form));
   if (!parsed.success) return { ok: false, error: "otp_invalid" };

@@ -1,6 +1,6 @@
 /**
  * Single source of truth for every actor in the system.
- * Portals, navigation and permissions are all derived from this table — never hard-code role strings elsewhere.
+ * Portals, navigation and permissions are all derived from this table - never hard-code role strings elsewhere.
  */
 export const ROLES = {
   citizen: { portal: "citizen", staff: false },

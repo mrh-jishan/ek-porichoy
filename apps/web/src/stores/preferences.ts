@@ -3,7 +3,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 /**
- * Client-only UI state (Zustand). Server data never lives here — it comes from
+ * Client-only UI state (Zustand). Server data never lives here - it comes from
  * React Server Components, Server Actions and TanStack Query.
  */
 type TextSize = "md" | "lg" | "xl";

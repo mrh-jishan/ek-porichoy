@@ -13,7 +13,7 @@ export interface Column<T> {
 export function DataTable<T>({ columns, rows, rowKey, empty, className }: {
   columns: Column<T>[]; rows: T[]; rowKey: (row: T) => string; empty?: ReactNode; className?: string;
 }) {
-  if (rows.length === 0) return <EmptyState title={empty ?? "—"} className="m-5" />;
+  if (rows.length === 0) return <EmptyState title={empty ?? "-"} className="m-5" />;
   return (
     <div className={cn("overflow-x-auto", className)}>
       <table className="w-full text-left text-sm">

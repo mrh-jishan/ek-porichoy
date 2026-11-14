@@ -19,13 +19,13 @@ export const programs = pgTable("programs", {
   descriptionBn: text().notNull(),
   descriptionEn: text().notNull(),
   ministryId: integer().notNull().references(() => ministries.id),
-  /** Benefit per cycle in BDT (integer taka — never floats for money). */
+  /** Benefit per cycle in BDT (integer taka - never floats for money). */
   amount: integer().notNull(),
   frequency: text({ enum: ["monthly", "quarterly"] }).notNull().default("monthly"),
   rules: jsonb().$type<RuleSet>().notNull(),
   povertyTargeted: boolean().notNull().default(true),
   annualBudget: bigint({ mode: "number" }).notNull(),
-  /** The separate card this programme used to require — retired by Ek Porichoy. */
+  /** The separate card this programme used to require - retired by Ek Porichoy. */
   legacyCardBn: text(),
   legacyCardEn: text(),
   active: boolean().notNull().default(true),
@@ -50,7 +50,7 @@ export const enrollments = pgTable(
     updatedAt: updatedAt(),
   },
   (t) => [
-    unique().on(t.nid, t.programId), // one NID, one enrollment per programme — duplicates are structurally impossible
+    unique().on(t.nid, t.programId), // one NID, one enrollment per programme - duplicates are structurally impossible
     index().on(t.programId, t.status),
     index().on(t.status),
   ],

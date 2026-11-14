@@ -186,8 +186,8 @@ export function DigitalIdCard(p: NidCardProps) {
                   <div className="space-y-[1cqw]">
                     <Row label="নাম:" className="text-[3.4cqw] font-bold">{p.nameBn}</Row>
                     <Row label="Name:" className="font-semibold tracking-wide uppercase">{p.nameEn}</Row>
-                    <Row label="পিতা:">{p.fatherNameBn ?? "—"}</Row>
-                    <Row label="মাতা:">{p.motherNameBn ?? "—"}</Row>
+                    <Row label="পিতা:">{p.fatherNameBn ?? "-"}</Row>
+                    <Row label="মাতা:">{p.motherNameBn ?? "-"}</Row>
                   </div>
                   <div className="space-y-[0.6cqw]">
                     <Row label="Date of Birth:" className="font-semibold text-accent-600">{fmtCardDate(p.dob)}</Row>
@@ -207,8 +207,8 @@ export function DigitalIdCard(p: NidCardProps) {
               <div className="mt-[2cqw] space-y-[1.1cqw] text-[2.6cqw] text-slate-900">
                 <div className="flex gap-[1.5cqw]"><span className="shrink-0 text-slate-600">ঠিকানা:</span><span className="line-clamp-2">{p.address}</span></div>
                 <div className="flex gap-[5cqw]">
-                  <span><span className="text-slate-600">রক্তের গ্রুপ / Blood Group: </span><b className="text-accent-600">{p.bloodGroup ?? "—"}</b></span>
-                  <span><span className="text-slate-600">জন্মস্থান: </span>{p.birthPlace ?? "—"}</span>
+                  <span><span className="text-slate-600">রক্তের গ্রুপ / Blood Group: </span><b className="text-accent-600">{p.bloodGroup ?? "-"}</b></span>
+                  <span><span className="text-slate-600">জন্মস্থান: </span>{p.birthPlace ?? "-"}</span>
                 </div>
                 <div><span className="text-slate-600">প্রদানের তারিখ: </span>{fmtCardDate(p.issuedAt)}</div>
               </div>

@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = await getTranslations({ locale: locale as "bn", namespace: "common" });
   return {
-    title: { default: `${t("appName")} — ${t("tagline")}`, template: `%s · ${t("appName")}` },
+    title: { default: `${t("appName")} - ${t("tagline")}`, template: `%s · ${t("appName")}` },
     description: t("tagline"),
     alternates: { languages: { bn: "/bn", en: "/en" } },
   };

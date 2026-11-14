@@ -1,7 +1,7 @@
 import type { Role } from "./roles.ts";
 
 /**
- * RBAC matrix — the ONLY place permissions are defined.
+ * RBAC matrix - the ONLY place permissions are defined.
  * Better-Auth's access-control plugin, server guards, core services and UI navigation all read from here.
  */
 export const STATEMENTS = {

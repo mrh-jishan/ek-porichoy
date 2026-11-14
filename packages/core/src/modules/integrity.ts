@@ -7,7 +7,7 @@ import { appendAudit } from "./audit";
 const AFFLUENT_SQL = sql`(s.is_taxpayer or s.owns_vehicle or s.is_govt_employee or s.monthly_electricity_kwh > 250)`;
 
 /**
- * Cross-registry integrity scan. Detectors are pure (packages/domain) — this module only
+ * Cross-registry integrity scan. Detectors are pure (packages/domain) - this module only
  * gathers facts and persists findings idempotently via a deterministic fingerprint.
  * Production: run per-partition by queue workers; group detectors (shared accounts) via SQL aggregates.
  */

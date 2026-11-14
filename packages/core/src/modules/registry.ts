@@ -31,7 +31,7 @@ export const toProfile = (p: PersonLike, s: SignalLike, householdSize: number): 
   isDeceased: p.isDeceased ?? false,
 });
 
-/** Full linked-registry view of one NID — the "one card replaces ninety" record. */
+/** Full linked-registry view of one NID - the "one card replaces ninety" record. */
 export async function getCitizenRecord(nid: string) {
   const row = await db.query.people.findFirst({ where: eq(people.nid, nid) });
   if (!row) return null;
@@ -55,7 +55,7 @@ export async function getCitizenRecord(nid: string) {
 
 export type CitizenRecord = NonNullable<Awaited<ReturnType<typeof getCitizenRecord>>>;
 
-/** Officer/manager lookup — scoped to the officer's jurisdiction when one is set. */
+/** Officer/manager lookup - scoped to the officer's jurisdiction when one is set. */
 export async function lookupCitizen(actor: Actor, nid: string) {
   authorize(actor, "registry", "lookup");
   if (!isValidNid(nid)) throw new AppError("INVALID", "invalid_nid");

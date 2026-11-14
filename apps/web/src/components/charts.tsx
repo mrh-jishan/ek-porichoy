@@ -4,7 +4,7 @@ import { Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, ResponsiveCo
 const BRAND = ["#006a4e", "#2e9c72", "#5fb892", "#96d3b6", "#00563f"];
 const tooltip = { contentStyle: { borderRadius: 12, border: "1px solid #dde5e1", fontSize: 12 } };
 
-/** Thin, typed chart wrappers — pages pass already-localised labels/values; charts stay presentational. */
+/** Thin, typed chart wrappers - pages pass already-localised labels/values; charts stay presentational. */
 export function GroupedBarChart({ data, series }: { data: Array<Record<string, string | number>>; series: Array<{ key: string; label: string; color: string }> }) {
   return (
     <ResponsiveContainer width="100%" height={280}>

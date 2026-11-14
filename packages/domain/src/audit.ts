@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 
 /**
  * Tamper-evident audit chain: every entry commits to the previous entry's hash.
- * Any UPDATE/DELETE on historical rows breaks verification — auditors can prove integrity.
+ * Any UPDATE/DELETE on historical rows breaks verification - auditors can prove integrity.
  */
 export interface AuditPayload {
   actorId: string | null;

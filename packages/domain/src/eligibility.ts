@@ -1,6 +1,6 @@
 /**
  * Declarative eligibility rules. Program managers configure these as data (stored as JSON),
- * so new safety-net programmes need NO new card, survey or code — only a rule set
+ * so new safety-net programmes need NO new card, survey or code - only a rule set
  * evaluated against the citizen's linked-registry profile.
  */
 export interface CitizenProfile {
@@ -47,7 +47,7 @@ const compare = (actual: unknown, { op, value }: Condition): boolean => {
 
 export interface EvaluationResult {
   eligible: boolean;
-  /** Conditions that failed — shown to citizens/officers so decisions are explainable. */
+  /** Conditions that failed - shown to citizens/officers so decisions are explainable. */
   failed: Condition[];
 }
 

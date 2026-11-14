@@ -3,7 +3,7 @@
     "appName": "Ek Porichoy",
     "tagline": "One NID. Every entitlement. No new cards.",
     "gov": "Government of the People's Republic of Bangladesh",
-    "demoBanner": "Prototype for public-policy demonstration — not an official government service.",
+    "demoBanner": "Prototype for public-policy demonstration - not an official government service.",
     "signIn": "Sign in",
     "signOut": "Sign out",
     "dashboard": "Dashboard",
@@ -36,7 +36,7 @@
   "portals": {
     "citizen": {
       "title": "Citizen",
-      "desc": "See every benefit you are entitled to, payments and complaints — with your NID only."
+      "desc": "See every benefit you are entitled to, payments and complaints - with your NID only."
     },
     "officer": {
       "title": "Field & Programme Officers",
@@ -69,7 +69,7 @@
   "landing": {
     "eyebrow": "National Social Protection Interoperability Platform",
     "heroTitle": "One identity instead of ninety cards",
-    "heroSubtitle": "Ek Porichoy links the existing NID server with banks, mobile financial services, land, tax, utility and health registries — so the right citizen receives the right support directly, without printing another plastic card.",
+    "heroSubtitle": "Ek Porichoy links the existing NID server with banks, mobile financial services, land, tax, utility and health registries - so the right citizen receives the right support directly, without printing another plastic card.",
     "ctaCitizen": "Check my benefits",
     "ctaStaff": "Official sign-in",
     "problemTitle": "Why another card will not fix it",
@@ -108,7 +108,7 @@
       },
       "link": {
         "title": "Registries talk to each other",
-        "desc": "Land, tax, electricity, vehicle and health data are linked by NID — no door-to-door survey."
+        "desc": "Land, tax, electricity, vehicle and health data are linked by NID - no door-to-door survey."
       },
       "rules": {
         "title": "Transparent rules decide",
@@ -116,7 +116,7 @@
       },
       "pay": {
         "title": "Money goes straight to you",
-        "desc": "bKash, Nagad, Rocket or bank — no middlemen, no card, no bribe."
+        "desc": "bKash, Nagad, Rocket or bank - no middlemen, no card, no bribe."
       }
     },
     "liveTitle": "Live on this platform",
@@ -127,7 +127,7 @@
       "ghostCards": "ghost & duplicate cards retired"
     },
     "portalsTitle": "One platform, every actor",
-    "costTitle": "৳11,780 crore for new cards — or a fraction for integration",
+    "costTitle": "৳11,780 crore for new cards - or a fraction for integration",
     "costDesc": "Experts from Dhaka University's IIT and Development Studies departments recommend interoperable data over new plastic. Every rupee saved on printing can reach a family instead.",
     "source": "Figures as reported in public investigative coverage and World Bank analysis."
   },
@@ -233,7 +233,7 @@
     "digitalId": "Ek Porichoy digital ID",
     "idSubtitle": "Valid for every government programme",
     "flipHint": "Tap card to flip",
-    "verifyHint": "Officials verify this ID against the NID server — no physical card required.",
+    "verifyHint": "Officials verify this ID against the NID server - no physical card required.",
     "replaces": "Replaces {count} separate cards",
     "household": "Household",
     "members": "{count, plural, one {# member} other {# members}}",
@@ -243,7 +243,7 @@
     "benefitsDesc": "Every programme is checked automatically against your NID record.",
     "replacesCard": "No longer needed: {card}",
     "apply": "Apply now",
-    "applied": "Application submitted — an officer will verify it.",
+    "applied": "Application submitted - an officer will verify it.",
     "whyNot": "Why not eligible",
     "paymentsTitle": "Payment history",
     "noPayments": "No payments yet.",
@@ -279,16 +279,16 @@
     "lookupDesc": "One lookup replaces checking 90 separate card lists.",
     "lookupPlaceholder": "Enter 10 or 17 digit NID",
     "enroll": "Propose enrolment",
-    "enrolled": "Enrolment proposed — awaiting a second officer.",
+    "enrolled": "Enrolment proposed - awaiting a second officer.",
     "outreachTitle": "Eligible but excluded",
-    "outreachDesc": "Poorest citizens in your jurisdiction who qualify but receive nothing — ranked by need. Reach them first.",
+    "outreachDesc": "Poorest citizens in your jurisdiction who qualify but receive nothing - ranked by need. Reach them first.",
     "eligibleFor": "Eligible for",
     "programsTitle": "Programme rules",
     "programsDesc": "Rules are data, not code. Changes are audited and apply instantly to every citizen.",
     "rules": "Eligibility rules (JSON)",
     "benefit": "Benefit (BDT)",
     "active": "Active",
-    "affluenceGuard": "Poverty-targeted — affluence guard (tax, vehicle, govt. job, electricity) applied automatically",
+    "affluenceGuard": "Poverty-targeted - affluence guard (tax, vehicle, govt. job, electricity) applied automatically",
     "generateTitle": "Generate disbursement",
     "period": "Period",
     "generate": "Generate batches",
@@ -316,7 +316,7 @@
   },
   "admin": {
     "overviewTitle": "National integrity overview",
-    "overviewDesc": "Cross-ministry view of coverage, leakage and payments — one NID, one truth.",
+    "overviewDesc": "Cross-ministry view of coverage, leakage and payments - one NID, one truth.",
     "kpi": {
       "citizens": "Citizens in registry",
       "enrollments": "Active enrolments",
@@ -348,7 +348,7 @@
     "auditTitle": "Tamper-evident audit trail",
     "auditDesc": "Every action is hash-chained. Altering any historical record breaks the chain.",
     "verifyChain": "Verify chain integrity",
-    "chainValid": "Chain intact — {total} entries verified",
+    "chainValid": "Chain intact - {total} entries verified",
     "chainBroken": "Chain broken at entry #{seq}",
     "usersTitle": "Identities & access",
     "usersDesc": "Staff identities, roles and scopes. Access is role-based and every change is audited.",

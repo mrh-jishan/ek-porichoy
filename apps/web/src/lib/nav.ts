@@ -11,7 +11,7 @@ export interface NavItem {
   href: string;
   label: keyof Messages["nav"];
   icon: LucideIcon;
-  /** Item is shown only if the role holds this permission — nav is derived from RBAC, never hand-maintained per role. */
+  /** Item is shown only if the role holds this permission - nav is derived from RBAC, never hand-maintained per role. */
   requires?: Permission;
 }
 

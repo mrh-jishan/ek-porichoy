@@ -53,7 +53,7 @@ export default async function LoginPage({ params, searchParams }: { params: Prom
                   ))}
                 </ul>
                 <hr className="my-4 border-white/20" />
-                <h3 className="text-xs font-semibold text-brand-100">{t("auth.citizenTab")} — {t("auth.nid")} / {t("auth.dob")}</h3>
+                <h3 className="text-xs font-semibold text-brand-100">{t("auth.citizenTab")} - {t("auth.nid")} / {t("auth.dob")}</h3>
                 <ul className="mt-2 space-y-1.5 font-mono text-xs">
                   {DEMO_CITIZENS.map(([nid, dob, name]) => (
                     <li key={nid} className="flex justify-between gap-2"><span>{nid} · {dob}</span><span className="text-brand-200">{name}</span></li>

@@ -1,6 +1,6 @@
 /**
- * Seeds a realistic simulation of the *status quo* — fragmented legacy cards, leakage to the affluent,
- * deceased recipients, shared agent accounts, and excluded poor — then lets Ek Porichoy's own services
+ * Seeds a realistic simulation of the *status quo* - fragmented legacy cards, leakage to the affluent,
+ * deceased recipients, shared agent accounts, and excluded poor - then lets Ek Porichoy's own services
  * (batches, integrity scan, card matching) run over it, so every dashboard tells a true story.
  */
 import { randomUUID } from "node:crypto";
@@ -87,7 +87,7 @@ const PROGRAMS: ProgramSeed[] = [
   {
     code: "TCB", ministry: "MOC", amount: 1100, annualBudget: 6_000_00_00_000,
     nameBn: "টিসিবি পারিবারিক খাদ্য সহায়তা", nameEn: "TCB Family Food Support",
-    descriptionBn: "নিম্ন আয়ের পরিবারকে ভর্তুকি মূল্যে খাদ্য — সরাসরি টাকায়।", descriptionEn: "Subsidised food for low-income families — now as a direct transfer.",
+    descriptionBn: "নিম্ন আয়ের পরিবারকে ভর্তুকি মূল্যে খাদ্য - সরাসরি টাকায়।", descriptionEn: "Subsidised food for low-income families - now as a direct transfer.",
     legacyCardBn: "টিসিবি ফ্যামিলি কার্ড", legacyCardEn: "TCB Family Card",
     rules: { all: [{ field: "monthlyIncome", op: "lte", value: 10000 }, { field: "age", op: "gte", value: 18 }] },
   },
@@ -114,7 +114,7 @@ const PROGRAMS: ProgramSeed[] = [
   },
 ];
 
-// Curated demo citizens — fixed NIDs/DOBs printed on the login page in development.
+// Curated demo citizens - fixed NIDs/DOBs printed on the login page in development.
 const DEMO_CITIZENS = [
   { nid: "1990000001", dob: "1956-03-14", phone: "+8801711000001", nameBn: "রহিমা বেগম", nameEn: "Rahima Begum", gender: "female", marital: "widowed", occupation: "homemaker", income: 3500, story: "oaa" },
   { nid: "1990000002", dob: "1979-07-02", phone: "+8801711000002", nameBn: "আব্দুল করিম", nameEn: "Abdul Karim", gender: "male", marital: "married", occupation: "farmer", income: 7000, story: "excluded" },
@@ -125,8 +125,8 @@ const STAFF = [
   { email: "admin@ekporichoy.test", name: "Super Admin (Cabinet Division)", role: "super_admin" },
   { email: "auditor@ekporichoy.test", name: "Auditor (CAG Office)", role: "auditor" },
   { email: "pm@ekporichoy.test", name: "Programme Manager (DSS)", role: "program_manager" },
-  { email: "officer@ekporichoy.test", name: "Field Officer — Dhaka", role: "field_officer", jurisdiction: "30" },
-  { email: "officer2@ekporichoy.test", name: "Field Officer 2 — Dhaka", role: "field_officer", jurisdiction: "30" },
+  { email: "officer@ekporichoy.test", name: "Field Officer - Dhaka", role: "field_officer", jurisdiction: "30" },
+  { email: "officer2@ekporichoy.test", name: "Field Officer 2 - Dhaka", role: "field_officer", jurisdiction: "30" },
   { email: "bkash@ekporichoy.test", name: "bKash Disbursement Desk", role: "payer", payerOrg: "bkash" },
   { email: "nagad@ekporichoy.test", name: "Nagad Disbursement Desk", role: "payer", payerOrg: "nagad" },
   { email: "rocket@ekporichoy.test", name: "Rocket Disbursement Desk", role: "payer", payerOrg: "rocket" },
@@ -140,7 +140,7 @@ async function chunkInsert<T>(rows: T[], insert: (chunk: T[]) => Promise<unknown
 async function main() {
   const [{ n } = { n: 0 }] = await db.execute<{ n: number }>(sql`select count(*)::int n from people`);
   if (Number(n) > 0) {
-    console.log("Database already seeded — run `pnpm db:reset` to start over.");
+    console.log("Database already seeded - run `pnpm db:reset` to start over.");
     process.exit(0);
   }
   console.time("seed");
@@ -348,7 +348,7 @@ async function main() {
   console.log("✓ payouts: 3 settled months + current-period drafts");
 
   // ── Ek Porichoy switches on: cross-registry integrity scan + legacy-card matching ──
-  // Mark a few recipients deceased *after* they were paid — the classic ghost-beneficiary case.
+  // Mark a few recipients deceased *after* they were paid - the classic ghost-beneficiary case.
   await db.execute(sql`
     update people set is_deceased = true, deceased_at = current_date - 40
     where nid in (select nid from enrollments where status = 'active' and source = 'legacy_import' order by md5(nid) limit 9)

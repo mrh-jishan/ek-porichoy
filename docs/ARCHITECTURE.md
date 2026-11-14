@@ -1,4 +1,4 @@
-# Ek Porichoy — Architecture
+# Ek Porichoy - Architecture
 
 > **One NID instead of ninety cards.** An interoperability platform that links the existing EC NID
 > server with banks, MFS, land, tax, utility and health registries so that eligibility is computed,
@@ -20,10 +20,10 @@
 
 ```
 apps/web            Next.js 16 (App Router, RSC, Server Actions, next-intl, Better-Auth handler)
-packages/domain     Pure TS business rules — no I/O. Roles, RBAC matrix, eligibility engine,
+packages/domain     Pure TS business rules - no I/O. Roles, RBAC matrix, eligibility engine,
                     fraud detectors, batch state machine, audit hash chain. Unit-tested.
 packages/db         Drizzle schema + pooled client (postgres-js). Single schema source.
-packages/core       Application services (use-cases) — the ONLY layer that touches the DB.
+packages/core       Application services (use-cases) - the ONLY layer that touches the DB.
                     Takes an `Actor`, re-checks permissions (defense in depth), writes audit atomically.
 packages/auth       Better-Auth config (admin + phoneNumber plugins), AC derived from domain RBAC.
 packages/i18n       bn/en catalogues, typed keys, Bangla-numeral formatters, parity check.

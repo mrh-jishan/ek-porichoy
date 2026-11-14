@@ -47,7 +47,7 @@ export default async function BatchDetail({ params }: PageProps<{ id: string }>)
               { key: "who", header: t("payer.recipient"), cell: (r) => <div><div className="font-medium">{pickLocale(locale, r.nameBn, r.nameEn)}</div><div className="font-mono text-xs text-muted">{maskNid(r.d.nid)}</div></div> },
               { key: "acct", header: t("payer.account"), cell: (r) => <span className="font-mono">{maskAccount(r.d.accountNumber)}</span> },
               { key: "amt", header: t("common.amount"), cell: (r) => formatMoney(locale, r.d.amount) },
-              { key: "ref", header: t("payer.txnRef"), cell: (r) => <span className="font-mono text-xs">{r.d.txnRef ?? r.d.failureReason ?? "—"}</span> },
+              { key: "ref", header: t("payer.txnRef"), cell: (r) => <span className="font-mono text-xs">{r.d.txnRef ?? r.d.failureReason ?? "-"}</span> },
               { key: "st", header: t("common.status"), cell: (r) => <StatusBadge status={r.d.status} /> },
               { key: "act", header: "", className: "text-right", cell: (r) => open && r.d.status === "sent" ? (
                 <ActionForm action={failDisbursementAction} className="flex justify-end gap-2">

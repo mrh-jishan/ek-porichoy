@@ -3,7 +3,7 @@ import { createdAt, id, updatedAt } from "./_shared";
 
 /**
  * Read-model of the Election Commission NID server + linked registries.
- * In production this is populated by CDC/API sync from EC, Land, NBR, utilities, BRTA, DGHS —
+ * In production this is populated by CDC/API sync from EC, Land, NBR, utilities, BRTA, DGHS -
  * replacing door-to-door surveys and separate card databases.
  */
 export const households = pgTable(

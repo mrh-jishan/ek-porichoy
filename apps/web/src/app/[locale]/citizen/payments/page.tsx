@@ -29,8 +29,8 @@ export default async function Payments({ params }: PageProps) {
             { key: "program", header: t("common.program"), cell: (r) => pickLocale(locale, r.programBn, r.programEn) },
             { key: "amount", header: t("common.amount"), cell: (r) => <span className="font-semibold">{formatMoney(locale, r.d.amount)}</span> },
             { key: "channel", header: t("payer.account"), cell: (r) => `${t(`providers.${r.d.provider as "bkash"}`)} ${maskAccount(r.d.accountNumber)}` },
-            { key: "ref", header: t("payer.txnRef"), cell: (r) => <span className="font-mono text-xs">{r.d.txnRef ?? "—"}</span> },
-            { key: "date", header: t("common.date"), cell: (r) => (r.d.paidAt ? formatDate(locale, r.d.paidAt) : "—") },
+            { key: "ref", header: t("payer.txnRef"), cell: (r) => <span className="font-mono text-xs">{r.d.txnRef ?? "-"}</span> },
+            { key: "date", header: t("common.date"), cell: (r) => (r.d.paidAt ? formatDate(locale, r.d.paidAt) : "-") },
             { key: "status", header: t("common.status"), cell: (r) => <StatusBadge status={r.d.status} /> },
           ]}
         />

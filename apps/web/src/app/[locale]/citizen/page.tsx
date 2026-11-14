@@ -20,7 +20,7 @@ export default async function CitizenHome({ params }: PageProps) {
   const { person, signals } = record;
   const cards = programs.map((p) => pickLocale(locale, p.program.legacyCardBn, p.program.legacyCardEn)).filter(Boolean) as string[];
 
-  const boolText = (v: boolean) => (v ? "✓" : "—");
+  const boolText = (v: boolean) => (v ? "✓" : "-");
   const linked: Array<{ field: Parameters<typeof t>[0]; value: string; source: string }> = [
     { field: "fields.monthlyIncome", value: formatMoney(locale, signals.monthlyIncome), source: "nbr_tax" },
     { field: "fields.landDecimals", value: formatNumber(locale, signals.landDecimals), source: "land_office" },

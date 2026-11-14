@@ -17,7 +17,7 @@ export const auth = betterAuth({
     provider: "pg",
     schema: { user: schema.user, session: schema.session, account: schema.account, verification: schema.verification },
   }),
-  // Staff accounts are provisioned by administrators only — no public sign-up.
+  // Staff accounts are provisioned by administrators only - no public sign-up.
   emailAndPassword: { enabled: true, disableSignUp: true, minPasswordLength: 10 },
   session: {
     expiresIn: SESSION_TTL.citizen,

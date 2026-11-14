@@ -3,7 +3,7 @@ export const NID_PATTERN = /^(\d{10}|\d{17})$/;
 
 export const isValidNid = (nid: string): boolean => NID_PATTERN.test(nid.trim());
 
-/** Show only the last four digits — never render a full NID outside of the owner's own session. */
+/** Show only the last four digits - never render a full NID outside of the owner's own session. */
 export const maskNid = (nid: string): string =>
   nid.length <= 4 ? nid : `${"•".repeat(Math.max(0, nid.length - 4))}${nid.slice(-4)}`;
 

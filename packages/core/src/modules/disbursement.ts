@@ -5,7 +5,7 @@ import { AppError, authorize, type Actor } from "../context";
 import { appendAudit } from "./audit";
 
 /**
- * Generate this period's payout batches for a programme — one per payer — with a single
+ * Generate this period's payout batches for a programme - one per payer - with a single
  * set-based INSERT … SELECT (scales to millions of rows; no N+1, no app-side loops).
  * Integrity gates are enforced IN the query: deceased, unverified KYC and high-severity
  * fraud flags never reach a payer.

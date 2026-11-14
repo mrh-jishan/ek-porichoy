@@ -10,7 +10,7 @@ type ServerAction<T> = (prev: ActionResult<T> | null, form: FormData) => Promise
 
 /**
  * Generic progressive-enhancement form for any server action built with defineAction.
- * Handles pending state, localized error/success toasts and reset — so no page re-implements them.
+ * Handles pending state, localized error/success toasts and reset - so no page re-implements them.
  */
 export function ActionForm<T>({ action, children, className, successKey, reset, onSuccess }: {
   action: ServerAction<T>;
