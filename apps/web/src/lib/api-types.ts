@@ -11,3 +11,10 @@ export interface LookupResponse {
 }
 
 export type ApiError = { error: string };
+
+export interface RulePreviewResponse {
+  scanned: number;
+  eligible: number;
+  poorestSharePct: number;
+  poorReachedPct: number;
+}

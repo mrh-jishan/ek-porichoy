@@ -70,3 +70,12 @@ test("audit hash is independent of key order (jsonb round-trip)", () => {
   const b = { at: "t", data: { a: { c: 3, d: 2 }, b: 1 }, entityId: null, entity: "e", action: "x", actorId: "a" };
   assert.equal(hashEntry(GENESIS_HASH, a), hashEntry(GENESIS_HASH, b));
 });
+
+test("rule validation catches bad fields, operators, values and empty groups", async () => {
+  const { validateRuleSet } = await import("./rule-fields.ts");
+  assert.deepEqual(validateRuleSet({ all: [{ field: "age", op: "gte", value: 65 }] }), []);
+  assert.deepEqual(validateRuleSet({ all: [] }), ["empty_group"]);
+  assert.deepEqual(validateRuleSet({ all: [{ field: "age", op: "in", value: 65 }] }), ["bad_operator:age"]);
+  assert.deepEqual(validateRuleSet({ any: [{ field: "gender", op: "eq", value: "robot" }] }), ["bad_value:gender"]);
+  assert.deepEqual(validateRuleSet({ all: [{ field: "isDeceased", op: "eq", value: false }] }), ["unknown_field:isDeceased"]);
+});

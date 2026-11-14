@@ -1,7 +1,7 @@
 import { asc, eq } from "drizzle-orm";
 import { z } from "zod";
 import { db, ministries, programs } from "@ep/db";
-import type { RuleSet } from "@ep/domain";
+import { validateRuleSet, type RuleSet } from "@ep/domain";
 import { AppError, authorize, type Actor } from "../context";
 import { appendAudit } from "./audit";
 
@@ -20,12 +20,15 @@ const conditionSchema = z.object({
   op: z.enum(["eq", "neq", "gt", "gte", "lt", "lte", "in"]),
   value: z.union([z.string(), z.number(), z.boolean(), z.array(z.union([z.string(), z.number()]))]),
 });
-const ruleSetSchema: z.ZodType<RuleSet> = z.lazy(() =>
+const ruleTreeSchema: z.ZodType<RuleSet> = z.lazy(() =>
   z.union([
-    z.object({ all: z.array(z.union([conditionSchema, ruleSetSchema])) }),
-    z.object({ any: z.array(z.union([conditionSchema, ruleSetSchema])) }),
+    z.object({ all: z.array(z.union([conditionSchema, ruleTreeSchema])) }),
+    z.object({ any: z.array(z.union([conditionSchema, ruleTreeSchema])) }),
   ]),
 ) as z.ZodType<RuleSet>;
+
+/** Shape check (Zod) + semantic check against field metadata (known fields, legal operators, typed values). */
+export const ruleSetSchema = ruleTreeSchema.refine((r) => validateRuleSet(r).length === 0, { message: "invalid_rules" });
 
 export const programUpdateSchema = z.object({
   id: z.uuid(),

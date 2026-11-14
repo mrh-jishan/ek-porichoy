@@ -143,3 +143,51 @@ export async function requestEnrollment(actor: Actor, programId: string) {
     return row!;
   });
 }
+
+// Registry snapshot used by rule previews; short-lived so a manager tweaking rules doesn't re-read the table on every keystroke.
+let snapshot: { at: number; rows: Array<{ profile: ReturnType<typeof toProfile>; perCapita: number }> } | null = null;
+const SNAPSHOT_TTL_MS = 60_000;
+
+async function registrySnapshot() {
+  if (snapshot && Date.now() - snapshot.at < SNAPSHOT_TTL_MS) return snapshot.rows;
+  const rows = await db
+    .select({ person: people, signals: personSignals, size: sql<number>`count(*) over (partition by ${people.householdId})::int` })
+    .from(people)
+    .innerJoin(personSignals, eq(personSignals.nid, people.nid))
+    .where(eq(people.isDeceased, false));
+  snapshot = {
+    at: Date.now(),
+    rows: rows.map(({ person, signals, size }) => ({
+      profile: toProfile(person, signals, size),
+      perCapita: signals.monthlyIncome / Math.max(1, size),
+    })),
+  };
+  return snapshot.rows;
+}
+
+/**
+ * "What if" impact of a draft rule set, before it is saved: how many citizens qualify, and how well
+ * it targets the poorest 40% (by per-capita income). Production: run against a sampled read replica.
+ */
+export async function previewRules(actor: Actor, rules: RuleSet, povertyTargeted: boolean) {
+  authorize(actor, "program", "read");
+  const rows = await registrySnapshot();
+  const sorted = rows.map((r) => r.perCapita).sort((a, b) => a - b);
+  const poorCutoff = sorted[Math.floor(sorted.length * 0.4)] ?? 0;
+  const effective = effectiveRules({ rules, povertyTargeted });
+  let eligible = 0, eligiblePoor = 0, poor = 0;
+  for (const r of rows) {
+    const isPoor = r.perCapita <= poorCutoff;
+    if (isPoor) poor++;
+    if (evaluate(effective, r.profile).eligible) {
+      eligible++;
+      if (isPoor) eligiblePoor++;
+    }
+  }
+  return {
+    scanned: rows.length,
+    eligible,
+    poorestSharePct: eligible ? Math.round((100 * eligiblePoor) / eligible) : 0,
+    poorReachedPct: poor ? Math.round((100 * eligiblePoor) / poor) : 0,
+  };
+}

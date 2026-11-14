@@ -4,6 +4,8 @@ export * from "./nid.ts";
 export * from "./eligibility.ts";
 export * from "./fraud.ts";
 export * from "./disbursement.ts";
+export * from "./canonical.ts";
 export * from "./audit.ts";
 export * from "./geo.ts";
 export * from "./permissions.ts";
+export * from "./rule-fields.ts";
