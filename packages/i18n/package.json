@@ -1,0 +1,9 @@
+{
+  "name": "@ep/i18n",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts", "./messages/*.json": "./src/messages/*.json" },
+  "scripts": { "typecheck": "tsc --noEmit", "test": "tsx src/check-keys.ts" },
+  "devDependencies": { "@ep/tsconfig": "workspace:*", "@types/node": "^24", "tsx": "^4.23.15", "typescript": "5.9.3" }
+}

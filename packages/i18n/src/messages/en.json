@@ -1,0 +1,384 @@
+{
+  "common": {
+    "appName": "Ek Porichoy",
+    "tagline": "One NID. Every entitlement. No new cards.",
+    "gov": "Government of the People's Republic of Bangladesh",
+    "demoBanner": "Prototype for public-policy demonstration — not an official government service.",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "dashboard": "Dashboard",
+    "loading": "Loading…",
+    "save": "Save",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "search": "Search",
+    "back": "Back",
+    "status": "Status",
+    "amount": "Amount",
+    "date": "Date",
+    "total": "Total",
+    "none": "Nothing here yet",
+    "actions": "Actions",
+    "name": "Name",
+    "nid": "NID",
+    "program": "Programme",
+    "division": "Division",
+    "perMonth": "/ month",
+    "perQuarter": "/ quarter",
+    "skipToContent": "Skip to main content",
+    "textSize": "Text size",
+    "contrast": "High contrast",
+    "language": "বাংলা",
+    "success": "Done",
+    "openPortal": "Open portal",
+    "lastUpdated": "Data refreshed live"
+  },
+  "portals": {
+    "citizen": {
+      "title": "Citizen",
+      "desc": "See every benefit you are entitled to, payments and complaints — with your NID only."
+    },
+    "officer": {
+      "title": "Field & Programme Officers",
+      "desc": "Verify enrolments, find excluded families and manage programme rules."
+    },
+    "payer": {
+      "title": "Banks & MFS",
+      "desc": "Receive signed disbursement batches and reconcile payments."
+    },
+    "admin": {
+      "title": "Oversight & Audit",
+      "desc": "National integrity dashboard, leakage detection and tamper-evident audit."
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "overview": "Overview",
+    "benefits": "My benefits",
+    "payments": "Payments",
+    "grievances": "Grievances",
+    "queue": "Verification queue",
+    "lookup": "NID lookup",
+    "outreach": "Excluded families",
+    "programs": "Programmes",
+    "batches": "Disbursements",
+    "integrity": "Integrity",
+    "audit": "Audit trail",
+    "users": "Identities"
+  },
+  "landing": {
+    "eyebrow": "National Social Protection Interoperability Platform",
+    "heroTitle": "One identity instead of ninety cards",
+    "heroSubtitle": "Ek Porichoy links the existing NID server with banks, mobile financial services, land, tax, utility and health registries — so the right citizen receives the right support directly, without printing another plastic card.",
+    "ctaCitizen": "Check my benefits",
+    "ctaStaff": "Official sign-in",
+    "problemTitle": "Why another card will not fix it",
+    "problemSubtitle": "Findings on the current card-based safety net",
+    "problem": {
+      "programmes": {
+        "value": "90",
+        "label": "safety-net programmes across 25 ministries, most with their own card"
+      },
+      "fakeCards": {
+        "value": "5.7M",
+        "label": "of 10 million TCB family cards failed NID verification"
+      },
+      "survey": {
+        "value": "৳637 cr",
+        "label": "spent on a poverty database later declared unusable"
+      },
+      "nid": {
+        "value": "20M+",
+        "label": "voters still without a smart NID card after 15 years"
+      },
+      "excluded": {
+        "value": "62%",
+        "label": "of poor households receive no major safety-net benefit"
+      },
+      "elite": {
+        "value": "31%",
+        "label": "of wealthy families receive government allowances"
+      }
+    },
+    "solutionTitle": "How Ek Porichoy works",
+    "steps": {
+      "nid": {
+        "title": "Your NID is the key",
+        "desc": "No new card. The EC NID record is the single identity across all programmes."
+      },
+      "link": {
+        "title": "Registries talk to each other",
+        "desc": "Land, tax, electricity, vehicle and health data are linked by NID — no door-to-door survey."
+      },
+      "rules": {
+        "title": "Transparent rules decide",
+        "desc": "Eligibility is computed from published rules, with reasons shown to every citizen."
+      },
+      "pay": {
+        "title": "Money goes straight to you",
+        "desc": "bKash, Nagad, Rocket or bank — no middlemen, no card, no bribe."
+      }
+    },
+    "liveTitle": "Live on this platform",
+    "live": {
+      "citizens": "citizens in registry",
+      "programs": "programmes on one rule engine",
+      "beneficiaries": "active beneficiaries",
+      "ghostCards": "ghost & duplicate cards retired"
+    },
+    "portalsTitle": "One platform, every actor",
+    "costTitle": "৳11,780 crore for new cards — or a fraction for integration",
+    "costDesc": "Experts from Dhaka University's IIT and Development Studies departments recommend interoperable data over new plastic. Every rupee saved on printing can reach a family instead.",
+    "source": "Figures as reported in public investigative coverage and World Bank analysis."
+  },
+  "auth": {
+    "title": "Sign in to Ek Porichoy",
+    "citizenTab": "Citizen",
+    "staffTab": "Official",
+    "citizenNote": "Use your NID and date of birth. A one-time code is sent to the mobile number registered with the Election Commission.",
+    "staffNote": "Accounts are provisioned by your ministry administrator. Sessions expire after 8 hours.",
+    "nid": "NID number",
+    "dob": "Date of birth",
+    "sendOtp": "Send code",
+    "otp": "6-digit code",
+    "otpSentTo": "Code sent to {phone}",
+    "demoOtp": "Demo SMS: your code is {code}",
+    "verify": "Verify & continue",
+    "changeNid": "Use a different NID",
+    "email": "Official email",
+    "password": "Password",
+    "demoAccounts": "Demo accounts",
+    "demoPassword": "Password for all staff: {password}",
+    "forbiddenTitle": "This area is not part of your role",
+    "forbiddenDesc": "Your account does not have permission to open this portal."
+  },
+  "status": {
+    "pending": "Pending",
+    "verified": "Verified",
+    "active": "Active",
+    "suspended": "Suspended",
+    "rejected": "Rejected",
+    "draft": "Draft",
+    "approved": "Approved",
+    "sent": "Sent to payer",
+    "settled": "Settled",
+    "cancelled": "Cancelled",
+    "paid": "Paid",
+    "failed": "Failed",
+    "open": "Open",
+    "confirmed": "Confirmed",
+    "dismissed": "Dismissed",
+    "in_review": "In review",
+    "resolved": "Resolved",
+    "eligible": "Eligible",
+    "not_eligible": "Not eligible",
+    "matched": "Matched to NID",
+    "duplicate": "Duplicate",
+    "unmatched": "Ghost (no NID)"
+  },
+  "severity": {
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+  "flags": {
+    "deceased_recipient": "Deceased recipient",
+    "affluent_recipient": "Affluent recipient",
+    "shared_payment_account": "Shared payment account",
+    "exclusive_program_conflict": "Exclusive programme conflict",
+    "unmatched_legacy_card": "Unmatched legacy card"
+  },
+  "providers": {
+    "sonali_bank": "Sonali Bank",
+    "bkash": "bKash",
+    "nagad": "Nagad",
+    "rocket": "Rocket"
+  },
+  "roles": {
+    "citizen": "Citizen",
+    "field_officer": "Field officer",
+    "program_manager": "Programme manager",
+    "payer": "Payer (Bank/MFS)",
+    "auditor": "Auditor",
+    "super_admin": "Super admin"
+  },
+  "fields": {
+    "age": "Age",
+    "gender": "Gender",
+    "maritalStatus": "Marital status",
+    "monthlyIncome": "Monthly household income",
+    "householdSize": "Household size",
+    "landDecimals": "Land (decimals)",
+    "isTaxpayer": "Income-tax filer",
+    "ownsVehicle": "Registered vehicle",
+    "monthlyElectricityKwh": "Electricity use (kWh/month)",
+    "isGovtEmployee": "Government employee",
+    "hasDisability": "Registered disability",
+    "isPregnant": "Pregnancy registered",
+    "occupation": "Occupation",
+    "isDeceased": "Alive in civil registry"
+  },
+  "sources": {
+    "ec_nid": "Election Commission",
+    "land_office": "Land Office",
+    "nbr_tax": "NBR (Tax)",
+    "utility": "Electricity utility",
+    "brta": "BRTA",
+    "dghs": "DGHS (Health)",
+    "dae_farmer": "Agriculture Extension",
+    "dof_fisher": "Dept. of Fisheries"
+  },
+  "citizen": {
+    "welcome": "Welcome, {name}",
+    "digitalId": "Ek Porichoy digital ID",
+    "idSubtitle": "Valid for every government programme",
+    "flipHint": "Tap card to flip",
+    "verifyHint": "Officials verify this ID against the NID server — no physical card required.",
+    "replaces": "Replaces {count} separate cards",
+    "household": "Household",
+    "members": "{count, plural, one {# member} other {# members}}",
+    "score": "Need score",
+    "scoreHint": "Higher means greater need. Computed from linked registries, not surveys.",
+    "benefitsTitle": "Your entitlements",
+    "benefitsDesc": "Every programme is checked automatically against your NID record.",
+    "replacesCard": "No longer needed: {card}",
+    "apply": "Apply now",
+    "applied": "Application submitted — an officer will verify it.",
+    "whyNot": "Why not eligible",
+    "paymentsTitle": "Payment history",
+    "noPayments": "No payments yet.",
+    "linkedTitle": "What the government knows about you",
+    "linkedDesc": "Data used to decide your eligibility, with its source. If anything is wrong, file a grievance.",
+    "grievanceTitle": "Report a problem",
+    "grievanceDesc": "Complaints go directly to your upazila officer and are visible to auditors. No middleman.",
+    "category": "Category",
+    "categories": {
+      "not_received": "Payment not received",
+      "wrong_amount": "Wrong amount",
+      "exclusion": "Eligible but not included",
+      "corruption": "Bribe or harassment",
+      "other": "Other"
+    },
+    "message": "Describe the problem",
+    "fileGrievance": "Submit complaint",
+    "myGrievances": "My complaints",
+    "officialResponse": "Official response"
+  },
+  "officer": {
+    "queueTitle": "Verification queue",
+    "queueDesc": "Enrolments proposed by other officers or citizens. You cannot verify an enrolment you proposed yourself (maker–checker).",
+    "approve": "Approve",
+    "reject": "Reject",
+    "source": {
+      "legacy_import": "Legacy import",
+      "officer": "Officer",
+      "auto_match": "Auto-match",
+      "citizen_request": "Citizen application"
+    },
+    "lookupTitle": "NID lookup",
+    "lookupDesc": "One lookup replaces checking 90 separate card lists.",
+    "lookupPlaceholder": "Enter 10 or 17 digit NID",
+    "enroll": "Propose enrolment",
+    "enrolled": "Enrolment proposed — awaiting a second officer.",
+    "outreachTitle": "Eligible but excluded",
+    "outreachDesc": "Poorest citizens in your jurisdiction who qualify but receive nothing — ranked by need. Reach them first.",
+    "eligibleFor": "Eligible for",
+    "programsTitle": "Programme rules",
+    "programsDesc": "Rules are data, not code. Changes are audited and apply instantly to every citizen.",
+    "rules": "Eligibility rules (JSON)",
+    "benefit": "Benefit (BDT)",
+    "active": "Active",
+    "affluenceGuard": "Poverty-targeted — affluence guard (tax, vehicle, govt. job, electricity) applied automatically",
+    "generateTitle": "Generate disbursement",
+    "period": "Period",
+    "generate": "Generate batches",
+    "generated": "{included} payments queued, {blocked} blocked by integrity checks",
+    "grievancesTitle": "Citizen grievances",
+    "response": "Response",
+    "markReview": "Mark in review",
+    "markResolved": "Resolve",
+    "noJurisdiction": "National",
+    "jurisdiction": "Jurisdiction: {name}"
+  },
+  "payer": {
+    "title": "Disbursement batches",
+    "desc": "Batches approved by the ministry and dispatched to your institution. Every account has passed NID–KYC matching.",
+    "items": "Payments",
+    "recipient": "Recipient",
+    "account": "Account",
+    "txnRef": "Txn ref",
+    "settle": "Confirm settlement",
+    "settleDesc": "All remaining payments will be marked paid with a transaction reference.",
+    "markFailed": "Mark failed",
+    "failureReason": "Reason",
+    "apiTitle": "Machine-to-machine settlement",
+    "apiDesc": "Core banking systems can post signed settlement files to the API. Requests are HMAC-SHA256 signed with a 5-minute replay window."
+  },
+  "admin": {
+    "overviewTitle": "National integrity overview",
+    "overviewDesc": "Cross-ministry view of coverage, leakage and payments — one NID, one truth.",
+    "kpi": {
+      "citizens": "Citizens in registry",
+      "enrollments": "Active enrolments",
+      "outlay": "Monthly outlay",
+      "leakage": "Monthly leakage blocked",
+      "flags": "Open integrity flags",
+      "paid": "Paid to date",
+      "grievances": "Open grievances",
+      "programs": "Programmes"
+    },
+    "targetingTitle": "Targeting accuracy",
+    "poorExcluded": "Poorest 40% receiving nothing",
+    "richIncluded": "Richest 20% receiving benefits",
+    "cardsTitle": "Legacy card retirement",
+    "byDivision": "Enrolments and flags by division",
+    "byProvider": "Payments by channel",
+    "flagsByType": "Open flags by type",
+    "integrityTitle": "Integrity flags",
+    "integrityDesc": "Cross-registry checks run against every enrolment. Confirming a flag suspends the benefit; high-severity flags automatically block payment.",
+    "runScan": "Run integrity scan",
+    "scanResult": "{newFlags} new flags from {scanned} enrolments",
+    "confirm": "Confirm & suspend",
+    "dismiss": "Dismiss",
+    "batchesTitle": "Disbursement control",
+    "batchesDesc": "Maker–checker: batches generated by a programme manager must be approved by a different official before dispatch.",
+    "approve": "Approve",
+    "dispatch": "Dispatch to payer",
+    "cancel": "Cancel",
+    "auditTitle": "Tamper-evident audit trail",
+    "auditDesc": "Every action is hash-chained. Altering any historical record breaks the chain.",
+    "verifyChain": "Verify chain integrity",
+    "chainValid": "Chain intact — {total} entries verified",
+    "chainBroken": "Chain broken at entry #{seq}",
+    "usersTitle": "Identities & access",
+    "usersDesc": "Staff identities, roles and scopes. Access is role-based and every change is audited.",
+    "ban": "Suspend",
+    "unban": "Restore",
+    "banned": "Suspended",
+    "scope": "Scope",
+    "readOnly": "Read-only auditor view"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "FORBIDDEN": "You are not allowed to do that.",
+    "NOT_FOUND": "Not found.",
+    "CONFLICT": "This was already done.",
+    "INVALID": "Please check the input.",
+    "invalid_nid": "Enter a valid 10 or 17 digit NID.",
+    "nid_not_found": "No citizen found with that NID.",
+    "nid_dob_mismatch": "NID and date of birth do not match the Election Commission record.",
+    "otp_invalid": "The code is incorrect or expired.",
+    "invalid_credentials": "Incorrect email or password.",
+    "outside_jurisdiction": "This citizen is outside your jurisdiction.",
+    "already_enrolled": "Already enrolled in this programme.",
+    "not_eligible": "Not eligible under current rules.",
+    "maker_checker": "You cannot approve your own submission.",
+    "batch_exists": "Batches for this programme and period already exist.",
+    "invalid_period": "Use the format YYYY-MM.",
+    "already_decided": "This enrolment was already decided.",
+    "already_resolved": "This flag was already resolved.",
+    "wrong_payer": "This batch belongs to a different payer.",
+    "invalid_rules": "Rules must be valid JSON.",
+    "rate_limited": "Too many attempts. Please wait a minute."
+  }
+}
