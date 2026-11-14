@@ -37,9 +37,9 @@ Citizens sign in with NID + date of birth. The OTP is shown on screen in develop
 
 | NID | DOB | Story |
 |---|---|---|
-| 1990000001 | 1956-03-14 | Widow on old-age allowance, with payment history |
-| 1990000002 | 1979-07-02 | Poor farmer, eligible but excluded, can self-apply |
-| 1990000003 | 1975-11-20 | Affluent TCB card holder, flagged by the integrity scan |
+| 1990000001 | 14/03/1956 | Widow on old-age allowance, with payment history |
+| 1990000002 | 02/07/1979 | Poor farmer, eligible but excluded, can self-apply |
+| 1990000003 | 20/11/1975 | Affluent TCB card holder, flagged by the integrity scan |
 
 ## A five-minute walkthrough
 1. **Citizen 1990000002**: see eligibility with reasons, then apply for Farmer Input Support.

@@ -1,7 +1,8 @@
 "use client";
 import { KeyRound, MessageSquareText, ShieldCheck, UserRound } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { DatePicker } from "@ep/ui/date-picker";
 import { useActionState, useState } from "react";
 import { Button, cn, Field, Input } from "@ep/ui";
 import { SubmitButton } from "@/components/action-form";
@@ -17,6 +18,8 @@ function ErrorText({ error }: { error?: string }) {
 
 function CitizenFlow() {
   const t = useTranslations("auth");
+  const tp = useTranslations("datePicker");
+  const locale = useLocale() as "bn" | "en";
   const [otpState, requestOtp] = useActionState(requestCitizenOtp, null);
   const [verifyState, verify] = useActionState(verifyCitizenOtp, null);
   const [creds, setCreds] = useState({ nid: "", dob: "" });
@@ -34,7 +37,9 @@ function CitizenFlow() {
               onChange={(e) => setCreds((c) => ({ ...c, nid: e.target.value.replace(/\D/g, "") }))} placeholder="1990000001" />
           </Field>
           <Field label={t("dob")} htmlFor="dob">
-            <Input id="dob" name="dob" type="date" required value={creds.dob} onChange={(e) => setCreds((c) => ({ ...c, dob: e.target.value }))} />
+            <DatePicker id="dob" name="dob" required value={creds.dob} onChange={(dob) => setCreds((c) => ({ ...c, dob }))}
+              lang={locale} labels={{ open: tp("open"), clear: tp("clear"), placeholder: tp("placeholder") }}
+              max={new Date().toISOString().slice(0, 10)} defaultMonth="1980-01-01" />
           </Field>
           <ErrorText error={otpState && !otpState.ok ? otpState.error : undefined} />
           <SubmitButton className="w-full" size="lg"><MessageSquareText className="size-4" />{t("sendOtp")}</SubmitButton>

@@ -442,5 +442,12 @@
     "showJson": "Show JSON",
     "hideJson": "Hide JSON",
     "unsaved": "Unsaved changes"
+  },
+  "datePicker": {
+    "open": "Open calendar",
+    "clear": "Clear date",
+    "placeholder": "DD/MM/YYYY",
+    "prevYear": "Previous year",
+    "nextYear": "Next year"
   }
 }

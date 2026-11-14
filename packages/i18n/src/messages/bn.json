@@ -442,5 +442,12 @@
     "showJson": "JSON দেখুন",
     "hideJson": "JSON লুকান",
     "unsaved": "অসংরক্ষিত পরিবর্তন"
+  },
+  "datePicker": {
+    "open": "ক্যালেন্ডার খুলুন",
+    "clear": "তারিখ মুছুন",
+    "placeholder": "দিন/মাস/বছর",
+    "prevYear": "আগের বছর",
+    "nextYear": "পরের বছর"
   }
 }

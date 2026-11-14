@@ -10,6 +10,7 @@ import type { PageProps } from "@/components/portal-layout";
 import { generateBatchesAction, updateProgramAction } from "@/server/actions/officer";
 import { requirePortal } from "@/server/session";
 import { RuleBuilder } from "./rule-builder";
+import { MonthPicker } from "@ep/ui/date-picker";
 
 export default async function Programs({ params }: PageProps) {
   const { locale } = await params;
@@ -55,7 +56,8 @@ export default async function Programs({ params }: PageProps) {
                     <h3 className="font-semibold">{t("officer.generateTitle")}</h3>
                     <input type="hidden" name="programId" value={program.id} />
                     <Field label={t("officer.period")} htmlFor={`period-${program.id}`}>
-                      <Input id={`period-${program.id}`} name="period" type="month" defaultValue={periodOf()} required />
+                      <MonthPicker id={`period-${program.id}`} name="period" defaultValue={periodOf()} lang={locale}
+                        labels={{ open: t("datePicker.open"), prevYear: t("datePicker.prevYear"), nextYear: t("datePicker.nextYear") }} />
                     </Field>
                     <p className="text-xs text-muted">{formatMoney(locale, program.amount)} × {t("status.active")}</p>
                     <SubmitButton className="w-full">{t("officer.generate")}</SubmitButton>
