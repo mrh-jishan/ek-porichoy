@@ -1,0 +1,18 @@
+{
+  "name": "ek-porichoy",
+  "private": true,
+  "packageManager": "pnpm@12.18.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "db:push": "pnpm --filter @ep/db db:push",
+    "db:seed": "pnpm --filter @ep/seed seed",
+    "db:reset": "pnpm --filter @ep/seed reset && pnpm --filter @ep/db db:push && pnpm --filter @ep/seed seed"
+  },
+  "devDependencies": {
+    "turbo": "^2.11.11",
+    "typescript": "5.9.3"
+  }
+}
