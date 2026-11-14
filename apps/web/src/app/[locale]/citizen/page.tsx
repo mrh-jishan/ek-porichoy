@@ -111,7 +111,7 @@ export default async function CitizenHome({ params }: PageProps) {
                 )}
                 {evaluation.eligible && !enrollment && (
                   <div className="mt-auto pt-4">
-                    <ActionButton action={applyForProgram} fields={{ programId: program.id }} successKey="citizen.applied" size="sm">{t("citizen.apply")}</ActionButton>
+                    <ActionButton action={applyForProgram} fields={{ programId: program.id }} successKey="citizen.applied" size="sm" data-umami-event="citizen-apply" data-umami-event-program={program.code}>{t("citizen.apply")}</ActionButton>
                   </div>
                 )}
               </Card>

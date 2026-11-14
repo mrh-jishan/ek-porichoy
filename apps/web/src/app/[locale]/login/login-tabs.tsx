@@ -42,7 +42,7 @@ function CitizenFlow() {
               max={new Date().toISOString().slice(0, 10)} defaultMonth="1980-01-01" />
           </Field>
           <ErrorText error={otpState && !otpState.ok ? otpState.error : undefined} />
-          <SubmitButton className="w-full" size="lg"><MessageSquareText className="size-4" />{t("sendOtp")}</SubmitButton>
+          <SubmitButton className="w-full" size="lg" data-umami-event="citizen-otp-request"><MessageSquareText className="size-4" />{t("sendOtp")}</SubmitButton>
         </motion.form>
       ) : (
         <motion.form key="otp" action={verify} className="space-y-4"
@@ -61,7 +61,7 @@ function CitizenFlow() {
               className="h-14 text-center font-mono text-2xl tracking-[0.6em]" />
           </Field>
           <ErrorText error={verifyState && !verifyState.ok ? verifyState.error : undefined} />
-          <SubmitButton className="w-full" size="lg"><ShieldCheck className="size-4" />{t("verify")}</SubmitButton>
+          <SubmitButton className="w-full" size="lg" data-umami-event="citizen-otp-verify"><ShieldCheck className="size-4" />{t("verify")}</SubmitButton>
           <Button type="button" variant="ghost" className="w-full" onClick={() => setReset((r) => r + 1)}>{t("changeNid")}</Button>
         </motion.form>
       )}
@@ -79,7 +79,7 @@ function StaffFlow({ next }: { next: string }) {
       <Field label={t("email")} htmlFor="email"><Input id="email" name="email" type="email" autoComplete="username" required /></Field>
       <Field label={t("password")} htmlFor="password"><Input id="password" name="password" type="password" autoComplete="current-password" required /></Field>
       <ErrorText error={state && !state.ok ? state.error : undefined} />
-      <SubmitButton className="w-full" size="lg"><KeyRound className="size-4" />{t("title")}</SubmitButton>
+      <SubmitButton className="w-full" size="lg" data-umami-event="staff-sign-in"><KeyRound className="size-4" />{t("title")}</SubmitButton>
     </form>
   );
 }

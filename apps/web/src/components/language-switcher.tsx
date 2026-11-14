@@ -17,6 +17,8 @@ export function LanguageSwitcher() {
     <button
       type="button"
       lang={next}
+      data-umami-event="language-switch"
+      data-umami-event-to={next}
       disabled={pending}
       onClick={() => start(() => router.replace({ pathname, params } as never, { locale: next }))}
       className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 font-semibold transition hover:bg-white/20 disabled:opacity-60"

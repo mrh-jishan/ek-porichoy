@@ -46,10 +46,10 @@ export default async function Landing({ params }: { params: Promise<{ locale: Lo
               <h1 className="text-4xl leading-tight font-bold sm:text-5xl lg:text-6xl">{t("landing.heroTitle")}</h1>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-brand-100 sm:text-lg">{t("landing.heroSubtitle")}</p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/login" className={buttonVariants({ variant: "accent", size: "lg" })}>
+                <Link href="/login" data-umami-event="cta-citizen" className={buttonVariants({ variant: "accent", size: "lg" })}>
                   {t("landing.ctaCitizen")} <ArrowRight className="size-4" />
                 </Link>
-                <Link href="/login?as=staff" className={buttonVariants({ variant: "light", size: "lg" })}>
+                <Link href="/login?as=staff" data-umami-event="cta-staff" className={buttonVariants({ variant: "light", size: "lg" })}>
                   {t("landing.ctaStaff")}
                 </Link>
               </div>
@@ -135,7 +135,7 @@ export default async function Landing({ params }: { params: Promise<{ locale: Lo
             <Stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {PORTALS.map(({ key, icon: Icon }) => (
                 <StaggerItem key={key}>
-                  <Link href={key === "citizen" ? "/login" : "/login?as=staff"} className="group block h-full rounded-card border border-line bg-surface p-6 transition hover:-translate-y-1 hover:border-brand-300 hover:bg-white hover:shadow-lift">
+                  <Link href={key === "citizen" ? "/login" : "/login?as=staff"} data-umami-event="portal-card" data-umami-event-portal={key} className="group block h-full rounded-card border border-line bg-surface p-6 transition hover:-translate-y-1 hover:border-brand-300 hover:bg-white hover:shadow-lift">
                     <span className="grid size-11 place-items-center rounded-xl bg-brand-600 text-white transition group-hover:scale-110 group-hover:bg-accent-500"><Icon className="size-5" /></span>
                     <h3 className="mt-4 font-semibold text-ink">{t(`portals.${key}.title`)}</h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-muted">{t(`portals.${key}.desc`)}</p>
