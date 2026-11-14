@@ -1,0 +1,10 @@
+{
+  "name": "@ep/auth",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": { "./server": "./src/server.ts", "./client": "./src/client.ts", "./permissions": "./src/permissions.ts" },
+  "scripts": { "typecheck": "tsc --noEmit" },
+  "dependencies": { "@ep/db": "workspace:*", "@ep/domain": "workspace:*", "better-auth": "^1.7.24", "drizzle-orm": "^0.45.4" },
+  "devDependencies": { "@ep/tsconfig": "workspace:*", "@types/node": "^24", "typescript": "5.9.3" }
+}
