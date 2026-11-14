@@ -1,0 +1,19 @@
+{
+  "name": "@ep/seed",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "seed": "tsx --env-file=../../.env src/seed.ts",
+    "reset": "tsx --env-file=../../.env src/reset.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ep/core": "workspace:*",
+    "@ep/db": "workspace:*",
+    "@ep/domain": "workspace:*",
+    "better-auth": "^1.7.24",
+    "drizzle-orm": "^0.45.4"
+  },
+  "devDependencies": { "@ep/tsconfig": "workspace:*", "@types/node": "^24", "tsx": "^4.23.15", "typescript": "5.9.3" }
+}
