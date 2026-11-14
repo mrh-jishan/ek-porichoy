@@ -6,6 +6,8 @@ Ek Porichoy is a full-stack prototype of a national social-protection platform f
 ~90 programme-specific cards with the existing NID: it links registries, computes eligibility
 from published rules, detects leakage, and pays citizens directly through banks and MFS.
 
+**Live demo:** https://ekporichoy.online360.org (demo mode: the OTP is shown on screen, and all data is synthetic)
+
 > Prototype for public-policy demonstration. It is not an official government service.
 
 ## Stack
