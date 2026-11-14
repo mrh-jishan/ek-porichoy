@@ -29,6 +29,11 @@ export const people = pgTable(
     gender: text({ enum: ["male", "female", "other"] }).notNull(),
     maritalStatus: text({ enum: ["single", "married", "widowed", "divorced"] }).notNull(),
     phone: text(),
+    // Printed on the smart NID card (EC record)
+    fatherNameBn: text(),
+    motherNameBn: text(),
+    bloodGroup: text(),
+    birthPlace: text(),
     householdId: uuid().notNull().references(() => households.id),
     divisionCode: text().notNull(),
     occupation: text().notNull(),

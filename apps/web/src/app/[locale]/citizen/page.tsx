@@ -40,14 +40,19 @@ export default async function CitizenHome({ params }: PageProps) {
           <DigitalIdCard
             nameBn={person.nameBn}
             nameEn={person.nameEn}
-            nid={person.nid}
+            fatherNameBn={person.fatherNameBn}
+            motherNameBn={person.motherNameBn}
             dob={person.dob}
-            region={divisionName(person.divisionCode, locale)}
+            nid={person.nid}
+            bloodGroup={person.bloodGroup}
+            birthPlace={person.birthPlace}
+            address={`${record.household.union}, ${record.household.upazila}, ${record.household.district}`}
+            issuedAt={person.createdAt.toISOString()}
             programs={cards}
             labels={{
-              title: t("citizen.digitalId"), subtitle: t("citizen.idSubtitle"), flip: t("citizen.flipHint"),
-              verify: t("citizen.verifyHint"), replaces: t("citizen.replaces", { count: formatNumber(locale, cards.length) }),
-              nid: t("common.nid"), dob: t("auth.dob"),
+              flip: t("citizen.flipHint"),
+              verify: t("citizen.verifyHint"),
+              replaces: t("citizen.replaces", { count: formatNumber(locale, cards.length) }),
             }}
           />
         </FadeIn>

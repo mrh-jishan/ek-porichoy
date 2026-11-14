@@ -35,6 +35,12 @@ const UPAZILAS = ["সদর", "উত্তর", "দক্ষিণ", "পূ�
 const UNIONS = ["১ নং", "২ নং", "৩ নং", "৪ নং", "৫ নং", "৬ নং"];
 
 const PASSWORD = "Demo@2026!";
+const BLOOD = ["A+", "B+", "O+", "AB+", "A-", "B-", "O-", "AB-"] as const;
+const parentNames = () => ({
+  fatherNameBn: `${pick(MALE)[0]} ${pick(SURNAME_M)[0]}`,
+  motherNameBn: `${pick(FEMALE)[0]} ${pick(SURNAME_F)[0]}`,
+  bloodGroup: weighted<string>(BLOOD.map((b, i) => [b, i < 4 ? 10 : 1])),
+});
 
 // ───────────────────────── reference data ─────────────────────────
 const MINISTRIES = [
@@ -217,6 +223,7 @@ async function main() {
         nid, nameBn: `${first[0]} ${last[0]}`, nameEn: `${first[1]} ${last[1]}`, dob: dobForAge(age),
         gender: male ? "male" : "female", maritalStatus: marital as P["maritalStatus"],
         phone: age >= 18 ? nextPhone() : null, householdId: id, divisionCode: division.code,
+        ...parentNames(), birthPlace: division.bn,
         occupation: isHead ? occupationHead : !male && chance(0.6) ? "homemaker" : pick(["labourer", "student", "unemployed", occupationHead]),
         isDeceased: age > 60 && chance(0.04),
       });
@@ -227,7 +234,7 @@ async function main() {
   for (const c of DEMO_CITIZENS) {
     const id = randomUUID();
     hh.push({ id, divisionCode: "30", district: "ঢাকা", upazila: "সাভার", union: "৩ নং" });
-    ppl.push({ nid: c.nid, nameBn: c.nameBn, nameEn: c.nameEn, dob: c.dob, gender: c.gender, maritalStatus: c.marital, phone: c.phone, householdId: id, divisionCode: "30", occupation: c.occupation });
+    ppl.push({ nid: c.nid, nameBn: c.nameBn, nameEn: c.nameEn, dob: c.dob, gender: c.gender, maritalStatus: c.marital, phone: c.phone, householdId: id, divisionCode: "30", occupation: c.occupation, ...parentNames(), birthPlace: "ঢাকা" });
     sig.push({
       nid: c.nid, monthlyIncome: c.income, landDecimals: c.story === "excluded" ? 80 : c.story === "affluent" ? 600 : 0,
       isTaxpayer: c.story === "affluent", ownsVehicle: c.story === "affluent", monthlyElectricityKwh: c.story === "affluent" ? 650 : 45,
